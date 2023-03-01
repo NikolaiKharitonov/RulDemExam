@@ -1,0 +1,51 @@
+﻿<Page x:Class="RulDemka.Pages.OrderTicketPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RulDemka.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrderTicketPage" Background="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <FlowDocumentReader Grid.Row="0">
+            <FlowDocument Name="flowDoc">
+                <BlockUIContainer>
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="Дата заказа: "></TextBlock>
+                        <TextBlock Text="{Binding OrderDate}"></TextBlock>
+
+                        <TextBlock Text="Номер заказа: "></TextBlock>
+                        <TextBlock Text="{Binding OrderID}"></TextBlock>
+
+                        <TextBlock Text="Состав заказа: "></TextBlock>
+                        <TextBlock x:Name="txtProductList"></TextBlock>
+
+                        <TextBlock Text="Сумма заказа: "></TextBlock>
+                        <TextBlock x:Name="txtCost"></TextBlock>
+
+                        <TextBlock Text="Сумма скидки: "></TextBlock>
+                        <TextBlock x:Name="txtDiscountSum"></TextBlock>
+
+                        <TextBlock Text="Пункт выдачи: "></TextBlock>
+                        <TextBlock x:Name="txtPickupPoint"></TextBlock>
+
+                        <TextBlock Text="Дата выдачи: "></TextBlock>
+                        <TextBlock Text="{Binding OrderDeliveryDate}"></TextBlock>
+
+                        <TextBlock Text="Код получения: " FontSize="20"></TextBlock>
+                        <TextBlock Text="{Binding ReceiptCode}" FontSize="20"></TextBlock>
+
+                    </StackPanel>
+                </BlockUIContainer>
+            </FlowDocument>
+        </FlowDocumentReader>
+        <Button x:Name="btnSaveDocument" Grid.Row="1" Content="Сохранить в PDF" Width="150" Click="btnSaveDocument_Click"></Button>
+    </Grid>
+</Page>
